@@ -1,6 +1,6 @@
 This is a [GROMACS](http://www.gromacs.org) implementation of the TraPPE-UA
 force field with HH-Alkane modifications for the C-OW cross interactions. Place
-the trappua.ff folder where GROMACS can find it (like in your GMXLIB directory).
+the trapepua.ff folder where GROMACS can find it (like in your GMXLIB directory).
 The TIP4P2005 water model is included, and is the only water model that should
 be used with the HH-Alkane modifications. Note that 1.4 nm cutoffs should be
 used with this force field. If you use this implementation, please read and cite
