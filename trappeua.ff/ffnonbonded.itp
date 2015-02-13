@@ -1,0 +1,47 @@
+
+; Comments indicate location in Table 1 of B. Chen, J.J. Potoff, and J.I.
+; Siepmann, J. Phys. Chem. B 105, 3093 (2001),
+; http://dx.doi.org/10.1021/jp003882x  The exception is methane (CH4) which is
+; found in Table 1 of  M.G. Martin, and J.I. Siepmann, J. Phys. Chem. B, 102, 2569
+; (1998). http://dx.doi.org/10.1021/jp972543+
+
+[ atomtypes ]
+; _O indicates the (pseduo)atom is bonded to an oxygen. _C indicates the
+; (pseudo)atom is bonded to a carbon.
+; name      bond_type    mass       charge   ptype   sigma        epsilon
+  CH4                    16.04300   0.000    A       3.73000e-01  1.23054e+00; CH4
+  O         O            15.99940  -0.700    A       3.02000e-01  7.73245e-01; CHX-[O]-H
+  H         H             1.00800   0.435    A       0.00000e-00  0.00000e-00; O-[H]
+  CH3_O     CH3          15.03500   0.265    A       3.75000e-01  8.14817e-01; [CH3]-OH
+  CH3_C     CH3          15.03500   0.000    A       3.75000e-01  8.14817e-01; [CH3]-CHX
+  CH2_O     CH2          14.02700   0.265    A       3.95000e-01  3.82465e-01; CHX-[CH2]-OH
+  CH2_C     CH2          14.02700   0.000    A       3.95000e-01  3.82465e-01; (CHX)2-[CH2]
+  CH_O      CH           13.01900   0.265    A       4.33000e-01  8.31445e-02; (CHX)2-[CH]-OH
+  CH_C      CH           13.01900   0.000    A       4.68000e-01  8.31445e-02; (CHX)3-[CH]
+  C_O       C            12.01100   0.265    A       5.80000e-01  4.15723e-03; (CHX)3-[C]-OH
+  C_C       C            12.01100   0.000    A       6.40000e-01  4.15723e-03; (CHX)4-[C]
+; tip4p2005
+; J. L. F. Abascal and C. Vega, J. Chem. Phys 123 234505 (2005)
+; http://dx.doi.org/10.1063/1.2121687
+  MW                      0.00000   0.000    D       0.00000e+00  0.00000e+00
+  OW                     15.99940   0.000    A       3.15890e-01  7.74900e-01
+  HW                      1.00800   0.000    A       0.00000e+00  0.00000e+00
+
+
+; HH-Alkane modifications for cross interactions between alkane carbons and water
+; oxygens. Include this *after* any [atomtypes] directive. Otherwise it will be
+; overidden.
+; The following comes from Table 1 of H.S. Ashbaugh, L. Liu, and L.N. Surampudi.
+; J.Chem. Phys. 135, 054510 (2011). http://dx.doi.org/10.1063/1.3623267
+
+[ nonbond_params ]
+; i      j      funct    V              W
+  CH4    OW     1        3.43600e-01    1.02267e+00
+  CH3_C  OW     1        3.44800e-01    8.22467e-01
+  CH3_O  OW     1        3.44800e-01    8.22467e-01
+  CH2_C  OW     1        3.54700e-01    5.65300e-01
+  CH2_O  OW     1        3.54700e-01    5.65300e-01
+  CH_C   OW     1        3.89500e-01    2.80281e-01
+  CH_O   OW     1        3.89500e-01    2.80281e-01
+  C_C    OW     1        4.61400e-01    9.29556e-02
+  C_O    OW     1        4.61400e-01    9.29556e-02
