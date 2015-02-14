@@ -20,18 +20,23 @@ the following references.
 I've done my best in transcribing and converting the parameters for usage with
 GROMACS. That said, it is up to the user to ensure that the parameters are
 correct and that simulations are set up according to the methods presented in
-the papers above.
+the papers above. There are several other papers out there with more parameters
+for different types of molecules - I haven't implemented those yet. Be sure to
+check out the [TraPPE website](http://siepmann6.chem.umn.edu/trappe/index.php).
 
 ## A few notes
 
 * A cutoff of 1.4 nm should be used for LJ interactions.
+* TraPPE recommends using Ewald summation for long-range electrostatic
+  calculations. You should probably use Particle-Mesh Ewald.
 * The number of exclusions for intramolecular non-bonded interactions should be
   set to 3 (intramolecular interactions separated by four or more bonds use the
-  same potential as intermolecular interactions).
+same potential as intermolecular interactions).
 * Intramolecular 1-4 LJ and Coulomb interactions are excluded, so you will need
   to remove the [ pairs ] list for a molecule. gen-pairs is by default "no"
-  under [ defaults ] and no [ pairtypes ] section exists, so you'll get an error about any   [ pairs ] section.
+under [ defaults ] and no [ pairtypes ] section exists, so you'll get an error
+about any   [ pairs ] section.
 * When constructing a new atom for this force field, you'll need to use [
   constraints ] instead of the normal [ bonds ] for the 1-2 bonded interactions.
-  Constraints type 1 is a bond of fixed length, which is what the TraPPE force
-  field specifies.
+Constraints type 1 is a bond of fixed length, which is what the TraPPE force
+field specifies.
