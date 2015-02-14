@@ -21,3 +21,17 @@ I've done my best in transcribing and converting the parameters for usage with
 GROMACS. That said, it is up to the user to ensure that the parameters are
 correct and that simulations are set up according to the methods presented in
 the papers above.
+
+## A few notes
+
+* A cutoff of 1.4 nm should be used for LJ interactions.
+* The number of exclusions for intramolecular non-bonded interactions should be
+  set to 3 (intramolecular interactions separated by four or more bonds use the
+  same potential as intermolecular interactions).
+* Intramolecular 1-4 LJ and Coulomb interactions are excluded, so you will need
+  to remove the [ pairs ] list for a molecule. gen-pairs is by default "no"
+  under [ defaults ] and no [ pairtypes ] section exists, so you'll get an error about any   [ pairs ] section.
+* When constructing a new atom for this force field, you'll need to use [
+  constraints ] instead of the normal [ bonds ] for the 1-2 bonded interactions.
+  Constraints type 1 is a bond of fixed length, which is what the TraPPE force
+  field specifies.
