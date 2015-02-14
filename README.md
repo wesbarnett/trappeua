@@ -1,3 +1,8 @@
+# TraPPE-UA and HH-Alkane for GROMACS
+
+James W. Barnett
+jbarnet4@tulane.edu
+
 This is a [GROMACS](http://www.gromacs.org) implementation of the TraPPE-UA
 force field with HH-Alkane modifications for the C-OW cross interactions. Place
 the trapepua.ff folder where GROMACS can find it (like in your GMXLIB directory).
@@ -13,9 +18,6 @@ the following references.
 * [J. L. F. Abascal and C. Vega, J. Chem. Phys 123 234505 (2005).](http://dx.doi.org/10.1063/1.2121687)
 
 I've done my best in transcribing and converting the parameters for usage with
-GROMACS. That said, it is YOUR job to make sure that they are correct and that
-there are no errors. It is also YOUR job to read the above references and use
-this force field and it's modifications in the correct way. 
-
-James W. Barnett
-jbarnet4@tulane.edu
+GROMACS. That said, it is up to the user to ensure that the parameters are
+correct and that simulations are set up according to the methods presented in
+the papers above.
