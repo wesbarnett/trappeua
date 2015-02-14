@@ -1,11 +1,11 @@
-  CH4       16.04300
-  O         15.99940
-  H          1.00800
-  CH3_O     15.03500
-  CH3_C     15.03500
-  CH2_O     14.02700
-  CH2_C     14.02700
-  CH_O      13.01900
-  CH_C      13.01900
-  C_O       12.01100
-  C_C       12.01100
+  CH4       16.04300 ; Methane
+  O         15.99940 ; Oxygen
+  H          1.00800 ; Hydrogen (only attaches to an oxygen)
+  CH3_O     15.03500 ; Methyl attached to an oxygen 
+  CH3_C     15.03500 ; Methyl attached to any carbon group
+  CH2_O     14.02700 ; Methylene attached to an oxygen
+  CH2_C     14.02700 ; Methylene attached to any carbon group
+  CH_O      13.01900 ; CH attached to an oxygen
+  CH_C      13.01900 ; CH attached to any carbon group
+  C_O       12.01100 ; Single carbon attached to an oxygen
+  C_C       12.01100 ; Single carbon attached to any carbon group
