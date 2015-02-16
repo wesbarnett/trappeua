@@ -21,7 +21,8 @@ I've done my best in transcribing and converting the parameters for usage with
 GROMACS. That said, it is up to the user to ensure that the parameters are
 correct and that simulations are set up according to the methods presented in
 the papers above. There are several other papers out there with more parameters
-for different types of molecules - I haven't implemented those yet. Be sure to
+for different types of molecules - I haven't implemented those yet. This current
+implementation only includes linear and branched alkanes and alcohols. Be sure to
 check out the [TraPPE website](http://siepmann6.chem.umn.edu/trappe/index.php).
 
 ## A few notes
