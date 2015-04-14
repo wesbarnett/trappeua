@@ -4,26 +4,18 @@ James W. Barnett
 jbarnet4@tulane.edu
 
 This is a [GROMACS](http://www.gromacs.org) implementation of the TraPPE-UA
-force field with HH-Alkane modifications for the C-OW cross interactions. Place
+force field with HH-Alkane modifications for the C-OW cross interactions. The
+modifications can optionally be removed (see below). To install, place
 the trapepua.ff folder where GROMACS can find it (like in your GMXLIB directory).
 The TIP4P2005 water model is included, and is the only water model that should
-be used with the HH-Alkane modifications. Note that 1.4 nm cutoffs should be
-used with this force field. If you use this implementation, please read and cite
-the following references.
+be used with the HH-Alkane modifications. If you use this implementation, please
+read and cite the following references.
 
 * [M.G. Martin, and J.I. Siepmann, J. Phys. Chem. B, 102, 2569 (1998).](http://dx.doi.org/10.1021/jp972543+)
 * [M. G. Martin and J. I. Siepmann, J. Phys. Chem. B 103, 4508 (1999).](http://dx.doi.org/10.1021/jp984742e)
 * [B. Chen, J.J. Potoff, and J.I.  Siepmann, J. Phys. Chem. B 105, 3093 (2001).](http://dx.doi.org/10.1021/jp003882x)
 * [H.S. Ashbaugh, L. Liu, and L.N. Surampudi. J.Chem. Phys. 135, 054510 (2011).](http://dx.doi.org/10.1063/1.3623267)
 * [J. L. F. Abascal and C. Vega, J. Chem. Phys 123 234505 (2005).](http://dx.doi.org/10.1063/1.2121687)
-
-I've done my best in transcribing and converting the parameters for usage with
-GROMACS. That said, it is up to the user to ensure that the parameters are
-correct and that simulations are set up according to the methods presented in
-the papers above. There are several other papers out there with more parameters
-for different types of molecules - I haven't implemented those yet. This current
-implementation only includes linear and branched alkanes and alcohols. Be sure to
-check out the [TraPPE website](http://siepmann6.chem.umn.edu/trappe/index.php).
 
 ## A few notes
 
@@ -35,7 +27,7 @@ check out the [TraPPE website](http://siepmann6.chem.umn.edu/trappe/index.php).
 same potential as intermolecular interactions).
 * Intramolecular 1-4 LJ and Coulomb interactions are excluded in TraPPE-UA, so you will need
   to remove the `[ pairs ]` list for a molecule. `gen-pairs` is by default "no"
-under `[ defaults ]` and no [ pairtypes ] section exists, so you'll get an error
+under `[ defaults ]` and no `[ pairtypes ]` section exists, so you'll get an error
 about any `[ pairs ]` section.
 * When constructing a new molecule for force field, you'll need to use `[
   constraints ]` instead of the normal `[ bonds ]` for the 1-2 bonded interactions.
@@ -48,5 +40,15 @@ by changing the `[ bonds ]` section to `[ constraints ]`. If you leave it as `[ 
 ]` you'll get an error, since there is no `[ bondtypes ]` in the force field (only
 `[ constrainttypes ]`).
 * You can choose not to use the HH-Alkane modifications by adding `define =
-  -DNO_HHALK_MODS` to your mdp files, this using the original TraPPE-UA force
+  -DNO_HHALK_MODS` to your mdp files, thus using the original TraPPE-UA force
   field.
+
+## Disclaimer
+
+I've done my best in transcribing and converting the parameters for usage with
+GROMACS. That said, it is up to the user to ensure that the parameters are
+correct and that simulations are set up according to the methods presented in
+the papers above. There are several other TraPPE papers out there with more
+parameters for different types of molecules - I haven't implemented those yet.
+This current implementation only includes linear and branched alkanes and
+alcohols. Be sure to check out the [TraPPE website](http://siepmann6.chem.umn.edu/trappe/index.php).
