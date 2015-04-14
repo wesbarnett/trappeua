@@ -46,7 +46,7 @@
 ;
 ; a = b = (1/2) * (distance(OD)  / [ cos (angle(DOH)) * distance(OH) ] )
 ;       = (1/2) * (0.01546 nm    / [ cos (52.26 deg)  * 0.09572 nm   ] )
-;       = 0.1393828
+;       = 0.13193828
 ; Dummy pos x4 = x1 + a*(x2-x1) + b*(x3-x1)
 
 [ virtual_sites3 ]
