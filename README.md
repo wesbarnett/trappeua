@@ -47,3 +47,4 @@ simply name the section `[ bonds ]` and manually fix your generated topology fil
 by changing the `[ bonds ]` section to `[ constraints ]`. If you leave it as `[ bonds
 ]` you'll get an error, since there is no `[ bondtypes ]` in the force field (only
 `[ constrainttypes ]`).
+* You can choose not to use the HH-Alkane modifications by adding 'define = -DNO_HHALK_MODS' to your mdp files.
