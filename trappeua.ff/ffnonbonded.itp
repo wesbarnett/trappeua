@@ -33,6 +33,10 @@
 ; overidden.
 ; The following comes from Table 1 of H.S. Ashbaugh, L. Liu, and L.N. Surampudi.
 ; J.Chem. Phys. 135, 054510 (2011). http://dx.doi.org/10.1063/1.3623267
+; User can choose not to include these modifications by adding '-DNO_HHALK_MODS'
+; to their mdp files.
+
+#ifndef NO_HHALK_MODS
 
 [ nonbond_params ]
 ; i      j      funct    V              W
@@ -45,3 +49,5 @@
   CH_O   OW     1        3.89500e-01    2.80281e-01
   C_C    OW     1        4.61400e-01    9.29556e-02
   C_O    OW     1        4.61400e-01    9.29556e-02
+
+#endif
