@@ -42,6 +42,8 @@ by changing the `[ bonds ]` section to `[ constraints ]`. If you leave it as `[ 
 * You can choose not to use the HH-Alkane modifications by adding `define =
   -DNO_HHALK_MODS` to your mdp files, thus using the original TraPPE-UA force
   field.
+* You can choose to turn the fixed bonds (constraints) into regular bonds by using `define =
+  -DFLEXIBLE` in your mdp files. This includes the water model.
 
 ## Disclaimer
 
