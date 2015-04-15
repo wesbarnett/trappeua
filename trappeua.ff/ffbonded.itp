@@ -2,6 +2,7 @@
 ; Comments indicate location in Table 1 of B. Chen, J.J. Potoff, and J.I.
 ; Siepmann, J. Phys. Chem. B 105, 3093 (2001), http://dx.doi.org/10.1021/jp003882x
 
+#ifndef FLEXIBLE
 [ constrainttypes ]
 ; i    j     func    b0 
 ; CHX-CHY
@@ -22,6 +23,28 @@
   C    O     1       0.1430
 ; O-H
   O    H     1       0.0945
+#else
+[ bondtypes ]
+; i    j     func    b0        k0
+; CHX-CHY
+  CH3  CH3   1       0.1540    502416.0
+  CH3  CH2   1       0.1540    502416.0
+  CH3  CH    1       0.1540    502416.0
+  CH3  C     1       0.1540    502416.0
+  CH2  CH2   1       0.1540    502416.0
+  CH2  CH    1       0.1540    502416.0
+  CH2  C     1       0.1540    502416.0
+  CH   CH    1       0.1540    502416.0
+  CH   C     1       0.1540    502416.0
+  C    C     1       0.1540    502416.0
+; CHX-OH
+  CH3  O     1       0.1430    502416.0
+  CH2  O     1       0.1430    502416.0
+  CH   O     1       0.1430    502416.0
+  C    O     1       0.1430    502416.0
+; O-H
+  O    H     1       0.0945    502416.0
+#endif
 
 [ angletypes ]
 ; i    j    k     func    th0       cth
