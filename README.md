@@ -5,10 +5,16 @@ jbarnet4@tulane.edu
 
 This is a [GROMACS](http://www.gromacs.org) implementation of the TraPPE-UA
 force field with HH-Alkane modifications for the C-OW cross interactions. The
-modifications can optionally be removed (see below). To install, place
-the `trapepua.ff` folder where GROMACS can find it (like in your directory point
-to by the environmental variable `GMXLIB`). Then include
-`trappeua.ff/forcefield.itp` in your topology file like you do for other
+modifications can optionally be removed (see below). 
+
+To install, place the `trapepua.ff` folder where GROMACS can find it, like in
+a directory pointed to by the environmental variable `GMXLIB`:
+
+    git clone git@github.com:wesbarnett/trappeua.git
+    cd trappeua
+    cp -r trappeua.ff $GMXLIB/
+
+Then include `trappeua.ff/forcefield.itp` in your topology file like you do for other
 forcefields. An example topology file is found at `neopentane.top`.
 
 The TIP4P2005 water model is included, and is the only water model that should
