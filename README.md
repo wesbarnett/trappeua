@@ -15,7 +15,8 @@ a directory pointed to by the environmental variable `GMXLIB`:
     cp -r trappeua.ff $GMXLIB/
 
 Then include `trappeua.ff/forcefield.itp` in your topology file like you do for other
-forcefields. An example topology file is found at `neopentane.top`.
+forcefields. An example topology file is found
+[here](https://gist.github.com/wesbarnett/479925865f9575464165).
 
 The TIP4P2005 water model is included, and is the only water model that should
 be used with the HH-Alkane modifications. If you use this implementation, please
