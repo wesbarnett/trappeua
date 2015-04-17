@@ -31,30 +31,34 @@ read and cite the following references.
 ## A few notes
 
 * TrAPPE-UA recommends that a cutoff of 1.4 nm should be used for LJ interactions.
-* TraPPE-UA recommends using Ewald summation for long-range electrostatic
-  calculations. You should probably use Particle-Mesh Ewald.
+* TraPPE-UA recommends using Ewald summation for long-range
+electrostaticcalculations. You should probably use Particle-Mesh Ewald.
 * The number of exclusions for intramolecular non-bonded interactions should be
-  set to 3 for TraPPE-UA (intramolecular interactions separated by four or more bonds use the
-same potential as intermolecular interactions).
-* Intramolecular 1-4 LJ and Coulomb interactions are excluded in TraPPE-UA, so you will need
-  to remove the `[ pairs ]` list for a molecule. `gen-pairs` is by default "no"
-under `[ defaults ]` and no `[ pairtypes ]` section exists, so you'll get an error
-about any `[ pairs ]` section.
+  set to 3 for TraPPE-UA (intramolecular interactions separated by four or more
+bonds use the same potential as intermolecular interactions).
+* Intramolecular 1-4 LJ and Coulomb interactions are excluded in TraPPE-UA, so
+  you will need to remove the `[ pairs ]` list for a molecule. `gen-pairs` is by
+default "no" under `[ defaults ]` and no `[ pairtypes ]` section exists, so
+you'll get an error about any `[ pairs ]` section.
 * When constructing a new molecule for force field, you'll need to use `[
-  constraints ]` instead of the normal `[ bonds ]` for the 1-2 bonded interactions.
-Constraints type 1 is a bond of fixed length, which is what the TraPPE-UA force
-field specifies.
-* You can create Residue Template Files (.rtp) to be used with pdb2gmx. Note
-  that right now pdb2gmx does not recognize `[ constraints ]`. A workaround is to
-simply name the section `[ bonds ]` in the .rtp file and manually fix your generated topology file
-by changing the `[ bonds ]` section to `[ constraints ]`. If you leave it as `[ bonds
-]` you'll get an error, since there is no `[ bondtypes ]` in the force field (only
-`[ constrainttypes ]`).
+  constraints ]` instead of the normal `[ bonds ]` for the 1-2 bonded
+interactions.  Constraints type 1 is a bond of fixed length, which is what the
+TraPPE-UA force field specifies.
+* You can create Residue Template Files (.rtp) to be used with pdb2gmx. Note that
+right now pdb2gmx does not recognize `[ constraints ]`. A workaround is to
+simply name the section `[ bonds ]` in the .rtp file and manually fix your
+generated topology file by changing the `[ bonds ]` section to `[ constraints
+]`. If you leave it as `[ bonds ]` you'll get an error, since there is no `[
+bondtypes ]` in the force field (only `[ constrainttypes ]`). An example .rtp
+file is [here](https://gist.github.com/wesbarnett/57c82cff11f2717e2032). After
+running pdb2gmx you can fix the bond/constraints problem by running: `sed -i 's/\[ bonds \]/#ifndef FLEXIBLE\n[ constraints ]\n#else\n[ bonds ]\n#endif/' topol.top`
+* The above adds an if statement such that you can choose to turn the fixed bonds
+(constraints) into regular bonds by using `define = -DFLEXIBLE` in your mdp
+files. This includes the water model and is useful for
+l-bfgs minimization.
 * You can choose not to use the HH-Alkane modifications by adding `define =
-  -DNO_HHALK_MODS` to your mdp files, thus using the original TraPPE-UA force
-  field.
-* You can choose to turn the fixed bonds (constraints) into regular bonds by using `define =
-  -DFLEXIBLE` in your mdp files. This includes the water model.
+-DNO_HHALK_MODS` to your mdp files, thus using the original TraPPE-UA force
+field.
 
 ## Disclaimer
 
