@@ -12,8 +12,8 @@
 ; Ethane
 [ ETH ]
  [ atoms ]
-   C1     CH2_C    0.000     1
-   C2     CH2_C    0.000     1
+   C1     CH3_C    0.000     1
+   C2     CH3_C    0.000     1
  [ bonds ]
    C1     C2
 
