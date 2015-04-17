@@ -40,7 +40,7 @@ bonds use the same potential as intermolecular interactions).
   you will need to remove the `[ pairs ]` list for a molecule. `gen-pairs` is by
 default "no" under `[ defaults ]` and no `[ pairtypes ]` section exists, so
 you'll get an error about any `[ pairs ]` section.
-* When constructing a new molecule for force field, you'll need to use `[
+* When constructing a new molecule for this force field, you'll need to use `[
   constraints ]` instead of the normal `[ bonds ]` for the 1-2 bonded
 interactions.  Constraints type 1 is a bond of fixed length, which is what the
 TraPPE-UA force field specifies.
