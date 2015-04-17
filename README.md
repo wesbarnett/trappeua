@@ -28,7 +28,7 @@ read and cite the following references.
 * [H.S. Ashbaugh, L. Liu, and L.N. Surampudi. J.Chem. Phys. 135, 054510 (2011).](http://dx.doi.org/10.1063/1.3623267)
 * [J. L. F. Abascal and C. Vega, J. Chem. Phys 123 234505 (2005).](http://dx.doi.org/10.1063/1.2121687)
 
-## A few notes
+## A few implementation notes
 
 * TrAPPE-UA recommends that a cutoff of 1.4 nm should be used for LJ interactions.
 * TraPPE-UA recommends using Ewald summation for long-range
@@ -44,21 +44,32 @@ you'll get an error about any `[ pairs ]` section.
   constraints ]` instead of the normal `[ bonds ]` for the 1-2 bonded
 interactions.  Constraints type 1 is a bond of fixed length, which is what the
 TraPPE-UA force field specifies.
+* You can choose not to use the HH-Alkane modifications by adding `define =
+-DNO_HHALK_MODS` to your mdp files, thus using the original TraPPE-UA force
+field.
+
+## Using Residue Template Files
+
 * You can create Residue Template Files (.rtp) to be used with pdb2gmx. Note that
 right now pdb2gmx does not recognize `[ constraints ]`. A workaround is to
 simply name the section `[ bonds ]` in the .rtp file and manually fix your
 generated topology file by changing the `[ bonds ]` section to `[ constraints
-]`. If you leave it as `[ bonds ]` you'll get an error, since there is no `[
-bondtypes ]` in the force field (only `[ constrainttypes ]`). An example .rtp
-file is [here](https://gist.github.com/wesbarnett/57c82cff11f2717e2032). After
-running pdb2gmx you can fix the bond/constraints problem by running: `sed -i 's/\[ bonds \]/#ifndef FLEXIBLE\n[ constraints ]\n#else\n[ bonds ]\n#endif/' topol.top`
-* The above adds an if statement such that you can choose to turn the fixed bonds
-(constraints) into regular bonds by using `define = -DFLEXIBLE` in your mdp
-files. This includes the water model and is useful for
+]`. If you leave it as `[ bonds ]` in the generated topology file you'll get an
+error when you run the simulation, since there is no `[ bondtypes ]` in the
+force field (only `[
+constrainttypes ]`).
+* After running pdb2gmx you can fix the bond/constraints problem by running the
+postprocess script (`pdb2gmx-postprocess`) found in this repo after doing
+pdb2gmx. It will also remove the `[ pairs ]` section if there is one, since you
+don't want that either.
+* The script also adds an `if` statement such that you can choose to turn the
+fixed bonds (constraints) into regular bonds by using `define = -DFLEXIBLE` in
+your mdp files. This includes the water model and is useful for
 l-bfgs minimization.
-* You can choose not to use the HH-Alkane modifications by adding `define =
--DNO_HHALK_MODS` to your mdp files, thus using the original TraPPE-UA force
-field.
+* Currently one .rtp file is included in the force field directory. Only a few
+  molecules are present at the time. Note that you can easily create linear
+alkanes by specifying the end groups with residue `CH3` and the interior groups
+as residue `CH2`, as long as each atom has the name `C`.
 
 ## Disclaimer
 

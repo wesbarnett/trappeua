@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cp topol.top tmp
+echo "Changing [ bonds ] to [ constraints ]..."
+sed -i 's/\[ bonds \]/#ifndef FLEXIBLE\n[ constraints ]\n#else\n[ bonds ]\n#endif/' tmp
+
+echo "Removing [ pairs ]..."
+awk '/\[ pairs \]/{while(getline && $0 != ""){}}1' tmp > topol.top
+
+rm tmp
