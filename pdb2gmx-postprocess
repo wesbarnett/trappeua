@@ -1,10 +1,29 @@
 #!/bin/bash
 
-cp topol.top tmp
+set -e
+
+if [ $# -eq 0 ]; then
+    echo "Using topol.top..."
+    TOPFILE=topol.top
+elif [ $# -eq 1 ]; then
+    echo "Using $1..."
+    TOPFILE=$1
+else
+    echo "Only one argument should be used - the name of the topology file."
+    exit
+fi
+
+echo "Backing up $TOPFILE to $TOPFILE.bak..."
+cp $TOPFILE{,.bak}
+cp $TOPFILE tmp
+
 echo "Changing [ bonds ] to [ constraints ]..."
 sed -i 's/\[ bonds \]/#ifndef FLEXIBLE\n[ constraints ]\n#else\n[ bonds ]\n#endif/' tmp
 
 echo "Removing [ pairs ]..."
-awk '/\[ pairs \]/{while(getline && $0 != ""){}}1' tmp > topol.top
+awk '/\[ pairs \]/{while(getline && $0 != ""){}}1' tmp > $TOPFILE
 
 rm tmp
+
+echo "$TOPFILE updated!"
+
