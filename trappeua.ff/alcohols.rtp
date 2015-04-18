@@ -1,0 +1,38 @@
+; These are just a few alcohols. Not everything is covered.
+
+[ bondedtypes ]
+; bonds  angles  dihedrals  impropers all_dihedrals nrexcl HH14 RemoveDih
+  1      1       3          1         1             3      1    0
+
+; Methanol
+[ MEO ]
+ [ atoms ]
+   C      CH3_O    0.265     1
+   O      O       -0.700     1
+   H      H        0.435     1
+ [ bonds ]
+   C   O
+   O   H
+
+; Ethanol
+[ ETO ]
+ [ atoms ]
+   C1     CH3_C    0.000     1
+   C2     CH2_O    0.265     1
+   O      O       -0.700     1
+   H      H        0.435     1
+ [ bonds ]
+   C1     C2
+   C2     O
+   O      H
+
+; Last methylene group connected to OH, with OH, in linear alcohols (use with
+; CH2 and CH3 residues in  alkanes.rtp)
+[ CH2O ]
+ [ atoms ]
+   C      CH2_O    0.265     1
+   O      O       -0.700     1
+   H      H        0.435     1
+ [ bonds ]
+   C      O
+   O      H
