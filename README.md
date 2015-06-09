@@ -19,8 +19,14 @@ forcefields. An example topology file is found
 [here](https://gist.github.com/wesbarnett/479925865f9575464165).
 
 The TIP4P2005 water model is included, and is the only water model that should
-be used with the HH-Alkane modifications. If you use this implementation, please
-read and cite the following references.
+be used with the HH-Alkane modifications. Ethanol is also included as solvent
+(HH-Alkane modifications don't apply here). 
+
+There are several git branches in this repo, some with personal modifications to
+the force field. The only branch that has the official TraPPE-UA parameters
+along with the HH-Alkane modifications is the `master`.
+
+Lastly, if you use this implementation, please read and cite the following references.
 
 * [M.G. Martin, and J.I. Siepmann, J. Phys. Chem. B, 102, 2569 (1998).](http://dx.doi.org/10.1021/jp972543+)
 * [M. G. Martin and J. I. Siepmann, J. Phys. Chem. B 103, 4508 (1999).](http://dx.doi.org/10.1021/jp984742e)
@@ -47,12 +53,9 @@ length, which is what the TraPPE-UA force field specifies.
 * You can choose not to use the HH-Alkane modifications by adding `define =
 -DNO_HHALK_MODS` to your mdp files, thus using the original TraPPE-UA force
 field.
-
-## Using Residue Template Files
-
 * Currently two .rtp files are included in the force field directory. Only a few
   molecules are present at the time. Note that you can easily create linear
-alkanes by specifying the end groups with residue `CH3` and the interior groups
+alkanes / alcohols by specifying the end groups with residue `CH3` and the interior groups
 as residue `CH2`, as long as each atom has the name `C`.
 
 ## Disclaimer
