@@ -9,7 +9,7 @@
 ; _O indicates the (pseduo)atom is bonded to an oxygen. _C indicates the
 ; (pseudo)atom is bonded to a carbon.
 ; name      bond_type    mass       charge   ptype   sigma        epsilon
-  CH4                    16.04300   0.000    A       3.73000e-01  1.23054e+00; CH4
+  CH4       CH3          16.04300   0.000    A       3.73000e-01  1.23054e+00; CH4
   O         O            15.99940  -0.700    A       3.02000e-01  7.73245e-01; CHX-[O]-H
   H         H             1.00800   0.435    A       0.00000e-00  0.00000e-00; O-[H]
   CH3_O     CH3          15.03500   0.265    A       3.75000e-01  8.14817e-01; [CH3]-OH
@@ -20,6 +20,9 @@
   CH_C      CH           13.01900   0.000    A       4.68000e-01  8.31445e-02; (CHX)3-[CH]
   C_O       C            12.01100   0.265    A       5.80000e-01  4.15723e-03; (CHX)3-[C]-OH
   C_C       C            12.01100   0.000    A       6.40000e-01  4.15723e-03; (CHX)4-[C]
+  CA        CA           12.01100   0.000    A       3.88000e-01  1.74604e-01; CH+[C](-CHx)+CH
+  CHA       CA           13.01900   0.000    A       3.69500e-01  4.19880e-01; CH+[CH]+CH
+  CH3_C_OFF CH3          15.03500   0.000    A       0.00000e+00  0.00000e+00; [CH3]-CHX
 ; tip4p2005
 ; J. L. F. Abascal and C. Vega, J. Chem. Phys 123 234505 (2005)
 ; http://dx.doi.org/10.1063/1.2121687
@@ -39,13 +42,16 @@
 [ nonbond_params ]
 ; i      j      funct    V              W
   CH4    OW     1        3.43600e-01    1.02267e+00
-  CH3_C  OW     1        3.44900e-01    8.11741e-01 ; Changed per email with HA Jun 7 2015
-  CH3_O  OW     1        3.44900e-01    8.11741e-01 ; Changed per email with HA Jun 7 2015
+; CH3 groups modified per email with Hank Jun 7 2015
+  CH3_C  OW     1        3.44900e-01    8.11741e-01
+  CH3_O  OW     1        3.44900e-01    8.11741e-01
   CH2_C  OW     1        3.54700e-01    5.65300e-01
   CH2_O  OW     1        3.54700e-01    5.65300e-01
   CH_C   OW     1        3.89500e-01    2.80281e-01
+  CHA    OW     1        3.89500e-01    2.80281e-01
   CH_O   OW     1        3.89500e-01    2.80281e-01
   C_C    OW     1        4.61400e-01    9.29556e-02
+  CA     OW     1        4.61400e-01    9.29556e-02
   C_O    OW     1        4.61400e-01    9.29556e-02
 #else
 ; NOTE: HH-Alkane modifications removed.

@@ -2,7 +2,6 @@
 ; Comments indicate location in Table 1 of B. Chen, J.J. Potoff, and J.I.
 ; Siepmann, J. Phys. Chem. B 105, 3093 (2001), http://dx.doi.org/10.1021/jp003882x
 
-#ifndef FLEXIBLE
 [ constrainttypes ]
 ; i    j     func    b0 
 ; CHX-CHY
@@ -16,6 +15,8 @@
   CH   CH    1       0.1540
   CH   C     1       0.1540
   C    C     1       0.1540
+  CA   CA    1       0.1400
+  CA   CH3   1       0.1540
 ; CHX-OH
   CH3  O     1       0.1430
   CH2  O     1       0.1430
@@ -23,7 +24,6 @@
   C    O     1       0.1430
 ; O-H
   O    H     1       0.0945
-#else
 [ bondtypes ]
 ; i    j     func    b0        k0
 ; CHX-CHY
@@ -37,6 +37,8 @@
   CH   CH    1       0.1540    502416.0
   CH   C     1       0.1540    502416.0
   C    C     1       0.1540    502416.0
+  CA   CA    1       0.1400    502416.0
+  CA   CH3   1       0.1540    502416.0
 ; CHX-OH
   CH3  O     1       0.1430    502416.0
   CH2  O     1       0.1430    502416.0
@@ -44,11 +46,12 @@
   C    O     1       0.1430    502416.0
 ; O-H
   O    H     1       0.0945    502416.0
-#endif
 
 [ angletypes ]
 ; i    j    k     func    th0       cth
 ; CHX-[CH2]-CHY
+; for ethane to propane transformation
+  CH3  CH3  CH3   1       114.0     519.65389
   CH3  CH2  CH3   1       114.0     519.65389
   CH3  CH2  CH2   1       114.0     519.65389
   CH3  CH2  CH    1       114.0     519.65389
@@ -103,6 +106,9 @@
   CH2  O    H     1       108.5     460.62120
   CH   O    H     1       108.5     460.62120
   C    O    H     1       108.5     460.62120
+; Rigid angles, should contrain all angles when used. K comes from OPLS otherwise
+  CA   CA   CA    1       120.0     527.184
+  CA   CA   CH3   1       120.0     585.760
   
 [ dihedraltypes ]
 ; Fourier dihedraltypes translated to Gromacs Ryckaert-Bellemans using the
@@ -145,3 +151,8 @@
   CH2  C    O    H    3     1.35991   4.07974   0.00000   -5.43965   0.00000   0.00000
   CH   C    O    H    3     1.35991   4.07974   0.00000   -5.43965   0.00000   0.00000
   C    C    O    H    3     1.35991   4.07974   0.00000   -5.43965   0.00000   0.00000
+; From OPLS
+  X    CA   CA   X    3    30.33400   0.00000 -30.33400    0.00000   0.00000   0.00000 
+; impropers for keeping aromatic rings planar
+  CA   CA   CA   CA   1  180.00000    4.6       2
+  CA   CA   CA   CH3  1  180.00000    4.6       2
