@@ -40,32 +40,16 @@ bonds use the same potential as intermolecular interactions).
   you will need to remove the `[ pairs ]` list for a molecule. `gen-pairs` is by
 default "no" under `[ defaults ]` and no `[ pairtypes ]` section exists, so
 you'll get an error about any `[ pairs ]` section.
-* When constructing a new molecule for this force field, you'll need to use `[
-  constraints ]` instead of the normal `[ bonds ]` for the 1-2 bonded
-interactions.  Constraints type 1 is a bond of fixed length, which is what the
-TraPPE-UA force field specifies.
+* You should set constraints to `all-bonds` when constructing a new molecule for this force field.
+Alternatively you'll need to use `[ constraints ]` instead of the normal `[
+bonds ]` for the 1-2 bonded interactions.  Constraints type 1 is a bond of fixed
+length, which is what the TraPPE-UA force field specifies.
 * You can choose not to use the HH-Alkane modifications by adding `define =
 -DNO_HHALK_MODS` to your mdp files, thus using the original TraPPE-UA force
 field.
 
 ## Using Residue Template Files
 
-* You can create Residue Template Files (.rtp) to be used with pdb2gmx. Note that
-right now pdb2gmx does not recognize `[ constraints ]`. A workaround is to
-simply name the section `[ bonds ]` in the .rtp file and manually fix your
-generated topology file by changing the `[ bonds ]` section to `[ constraints
-]`. If you leave it as `[ bonds ]` in the generated topology file you'll get an
-error when you run the simulation, since there is no `[ bondtypes ]` in the
-force field (only `[
-constrainttypes ]`).
-* After running pdb2gmx you can fix the bond/constraints problem by running the
-postprocess script (`pdb2gmx-postprocess`) found in this repo after doing
-pdb2gmx. It will also remove the `[ pairs ]` section if there is one, since you
-don't want that either.
-* The script also adds an `if` statement such that you can choose to turn the
-fixed bonds (constraints) into regular bonds by using `define = -DFLEXIBLE` in
-your mdp files. This includes the water model and is useful for
-l-bfgs minimization.
 * Currently one .rtp file is included in the force field directory. Only a few
   molecules are present at the time. Note that you can easily create linear
 alkanes by specifying the end groups with residue `CH3` and the interior groups
