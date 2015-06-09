@@ -46,10 +46,7 @@ bonds use the same potential as intermolecular interactions).
   you will need to remove the `[ pairs ]` list for a molecule. `gen-pairs` is by
 default "no" under `[ defaults ]` and no `[ pairtypes ]` section exists, so
 you'll get an error about any `[ pairs ]` section.
-* You should set constraints to `all-bonds` when constructing a new molecule for this force field.
-Alternatively you'll need to use `[ constraints ]` instead of the normal `[
-bonds ]` for the 1-2 bonded interactions.  Constraints type 1 is a bond of fixed
-length, which is what the TraPPE-UA force field specifies.
+* You should set constraints to `all-bonds`, since TraPPeUA bonds are fixed.
 * You can choose not to use the HH-Alkane modifications by adding `define =
 -DNO_HHALK_MODS` to your mdp files, thus using the original TraPPE-UA force
 field.
