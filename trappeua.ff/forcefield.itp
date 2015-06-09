@@ -20,8 +20,8 @@
 ; http://dx.doi.org/10.1063/1.2121687
 
 [ defaults ]
-; nbfunc    comb-rule
-  1         2        
+; nbfunc    comb-rule   gen-pairs   fudgeLJ     fudgeQQ
+  1         2           no          0.0         0.0
 
 #include "ffnonbonded.itp"
 #include "ffbonded.itp"
