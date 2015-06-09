@@ -50,7 +50,7 @@ field.
 
 ## Using Residue Template Files
 
-* Currently one .rtp file is included in the force field directory. Only a few
+* Currently two .rtp files are included in the force field directory. Only a few
   molecules are present at the time. Note that you can easily create linear
 alkanes by specifying the end groups with residue `CH3` and the interior groups
 as residue `CH2`, as long as each atom has the name `C`.
