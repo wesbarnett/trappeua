@@ -1,4 +1,4 @@
-; These are just a few alkanes. Not everything is covered.
+; Linear and branched alkanes
 
 [ bondedtypes ]
 ; bonds  angles  dihedrals  impropers all_dihedrals nrexcl HH14 RemoveDih
@@ -9,15 +9,7 @@
  [ atoms ]
    C      CH4      0.000     1
 
-; Ethane
-[ ETH ]
- [ atoms ]
-   C1     CH3_C    0.000     1
-   C2     CH3_C    0.000     1
- [ bonds ]
-   C1     C2
-
-; Methylene group in the middle of a linear alkane
+; Methylene group in the middle of an alkane
 [ CH2 ]
  [ atoms ]
    C      CH2_C    0.000     1
@@ -25,21 +17,31 @@
   -C     C
    C    +C
 
-; Terminal methyl group for a linear alkane
+; Terminal methyl group for an alkane
 [ CH3 ]
  [ atoms ]
-   C      CH3_C    0.000     1
-
-; Neopentane
-[ NPA ]
- [ atoms ]
-   C1     CH3_C    0.000     1
-   C      C_C      0.000     1
-   C2     CH3_C    0.000     1
-   C3     CH3_C    0.000     1
-   C4     CH3_C    0.000     1
+  C      CH3_C    0.000     1
  [ bonds ]
-   C1    C
-   C2    C
-   C3    C
-   C4    C
+  -C     C
+
+; Methyl branch connected to CH
+[ MB ]
+ [ atoms ]
+   C1    CH3_C     0.000     1
+   C     CH_C      0.000     1
+ [ bonds ]
+  -C     C
+   C     C1
+   C     C+
+
+; Dimethyl branch connected to C
+[ DMB ]
+ [ atoms ]
+   C1    CH3_C     0.000     1
+   C     C_C       0.000     1
+   C2    CH3_C     0.000     1
+ [ bonds ]
+  -C     C
+   C1    C 
+   C2    C 
+   C     C+
