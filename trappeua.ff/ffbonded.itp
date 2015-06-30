@@ -85,7 +85,8 @@
   
 [ dihedraltypes ]
 ; Fourier dihedraltypes translated to Gromacs Ryckaert-Bellemans using the
-; following formulas, where F indicates values from Table 1 of Chen.
+; following formulas, where F indicates values from Table 1 of Chen or Table 2
+; of Martin.
 ; C0 =   F0 +  F1 + 2F2 + F3
 ; C1 =  -F1 + 3F3 
 ; C2 = -2F2 + 8F4
