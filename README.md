@@ -38,22 +38,30 @@ Lastly, if you use this implementation, please read and cite the following refer
 
 * TrAPPE-UA recommends that a cutoff of 1.4 nm should be used for LJ interactions.
 * TraPPE-UA recommends using Ewald summation for long-range
-electrostaticcalculations. You should probably use Particle-Mesh Ewald.
+electrostatic calculations. You should probably use Particle-Mesh Ewald.
 * The number of exclusions for intramolecular non-bonded interactions should be
   set to 3 for TraPPE-UA (intramolecular interactions separated by four or more
-bonds use the same potential as intermolecular interactions).
+bonds use the same potential as intermolecular interactions). This is pretty
+typical.
 * Intramolecular 1-4 LJ and Coulomb interactions are excluded in TraPPE-UA, so
   you will need to remove the `[ pairs ]` list for a molecule. `gen-pairs` is by
 default "no" under `[ defaults ]` and no `[ pairtypes ]` section exists, so
 you'll get an error about any `[ pairs ]` section.
-* You should set constraints to `all-bonds`, since TraPPeUA bonds are fixed.
-* You can choose not to use the HH-Alkane modifications by adding `define =
--DNO_HHALK_MODS` to your mdp files, thus using the original TraPPE-UA force
-field.
 * Currently two .rtp files are included in the force field directory. Only a few
   molecules are present at the time. Note that you can easily create linear
 alkanes / alcohols by specifying the end groups with residue `CH3` and the interior groups
 as residue `CH2`, as long as each atom has the name `C`.
+
+**NOTE**: Please read the following carefully.
+
+* You should set constraints to `all-bonds`, since TraPPeUA bonds are fixed. If
+  you do not, bonds will be flexible and an arbitrarily large spring constant is
+set in the force field.
+* You can choose not to use the HH-Alkane modifications by adding `define =
+-DNO_HHALK_MODS` to your mdp files, thus using the original TraPPE-UA force
+field. The HHALK modifications only affect water-oxygen carbon cross
+interactions.
+
 
 ## Disclaimer
 
