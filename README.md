@@ -10,7 +10,7 @@ modifications can optionally be removed (see below).
 To install, place the `trapepua.ff` folder where GROMACS can find it, like in
 a directory pointed to by the environmental variable `GMXLIB`:
 
-    git clone git@github.com:wesbarnett/trappeua.git
+    git clone https://github.com/wesbarnett/trappeua.git
     cd trappeua
     cp -r trappeua.ff $GMXLIB/
 
