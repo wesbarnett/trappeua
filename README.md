@@ -4,8 +4,8 @@ James W. Barnett
 jbarnet4@tulane.edu
 
 This is a [GROMACS](http://www.gromacs.org) implementation of the TraPPE-UA
-force field with HH-Alkane modifications for the C-OW cross interactions. The
-modifications can optionally be removed (see below). 
+force field with optional HH-Alkane modifications for the C-OW cross
+interactions (see below). 
 
 To install, place the `trapepua.ff` folder where GROMACS can find it, like in
 a directory pointed to by the environmental variable `GMXLIB`:
@@ -57,8 +57,8 @@ as residue `CH2`, as long as each atom has the name `C`.
 * You should set constraints to `all-bonds`, since TraPPeUA bonds are fixed. If
   you do not, bonds will be flexible and an arbitrarily large spring constant is
 set in the force field.
-* You can choose not to use the HH-Alkane modifications by adding `define =
--DNO_HHALK_MODS` to your mdp files, thus using the original TraPPE-UA force
+* You can choose use the HH-Alkane modifications by adding `define =
+-DWITH_HHALK_MODS` to your mdp files, thus using the original TraPPE-UA force
 field. The HHALK modifications only affect water-oxygen carbon cross
 interactions.
 
