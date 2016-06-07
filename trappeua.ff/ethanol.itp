@@ -2,14 +2,14 @@
 
 [ moleculetype ]
 ; Name            nrexcl
-SOL                 3
+ETO                 3
 
 [ atoms ]
 ;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
-     1      CH3_C      1    SOL     C1      1          0     15.035   ; qtot 0
-     2      CH2_O      1    SOL     C2      1      0.265     14.027   ; qtot 0.265
-     3          O      1    SOL      O      1       -0.7    15.9994   ; qtot -0.435
-     4          H      1    SOL      H      1      0.435      1.008   ; qtot 0
+     1      CH3_C      1    ETO     C1      1          0     15.035   ; qtot 0
+     2      CH2_O      1    ETO     C2      1      0.265     14.027   ; qtot 0.265
+     3          O      1    ETO      O      1       -0.7    15.9994   ; qtot -0.435
+     4          H      1    ETO      H      1      0.435      1.008   ; qtot 0
 
 [ bonds ]
 ;  ai    aj funct
