@@ -5,6 +5,9 @@
 ; found in Table 1 of  M.G. Martin, and J.I. Siepmann, J. Phys. Chem. B, 102, 2569
 ; (1998). http://dx.doi.org/10.1021/jp972543+
 
+; Additionally, some parameters were corrected on the TRAPPE-UA website. Those
+; corrected parameters were used here.
+
 [ atomtypes ]
 ; _O indicates the (pseduo)atom is bonded to an oxygen. _C indicates the
 ; (pseudo)atom is bonded to a carbon.

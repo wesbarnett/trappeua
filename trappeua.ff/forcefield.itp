@@ -1,6 +1,6 @@
 ; This force field is TraPPE-UA with HH-Alkane modifications. The HH-Alkane mods
-; are only for use with the TIP4P/2005 water model. Note that with TraPPE-UA one
-; should use 1.4 nm cutoffs.
+; are only for use with the TIP4P/2005 water model. Note that with TraPPE-UA it
+; is recommended to use 1.4 nm cutoffs.
 
 ; REFERENCES:
 
@@ -19,11 +19,14 @@
 ; J. L. F. Abascal and C. Vega, J. Chem. Phys 123 234505 (2005)
 ; http://dx.doi.org/10.1063/1.2121687
 
+; NOTE: Some values for the TraPPE-UA forcefield were corrected on their website
+; after publication. Those corrected values were implemented here.
+
 ; nbfunc 1 = Lennard-Jones formulation for non-bonded interactions
 ; comb-rule 2 = Lorentz-Berthelot combination rules
 ; gen-pairs no = 1-4 non-bonded interactions must be explicitly stated in a 
-;     [ pairtypes ] section. For this force field there are no 1-4 non-bonded
-;      interactions, so there are no [ pairtypes ] sections.
+;   [ pairtypes ] section. For this force field there are no 1-4 non-bonded
+;   interactions, so there are no [ pairtypes ] sections.
 
 [ defaults ]
 ; nbfunc    comb-rule   gen-pairs

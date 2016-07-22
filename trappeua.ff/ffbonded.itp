@@ -3,6 +3,9 @@
 ; Siepmann, J. Phys. Chem. B 105, 3093 (2001), http://dx.doi.org/10.1021/jp003882x
 ; and Table 2 of M. G. Martin and J. I. Siepmann, J. Phys. Chem. B 103, 4508
 ; (1999), http://dx.doi.org/10.1021/jp984742e
+
+; Additionally, some parameters were corrected on the TRAPPE-UA website. Those
+; corrected parameters were used here.
  
 [ bondtypes ]
 ; i    j     func    b0        k0
