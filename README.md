@@ -71,4 +71,4 @@ correct and that simulations are set up according to the methods presented in
 the papers above. There are several other TraPPE papers out there with more
 parameters for different types of molecules - I haven't implemented those yet.
 This current implementation only includes linear and branched alkanes and
-alcohols. Be sure to check out the [TraPPE website](http://siepmann6.chem.umn.edu/trappe/index.php).
+alcohols. Be sure to check out the [TraPPE website](http://trappe.oit.umn.edu/).
